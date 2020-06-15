@@ -1,0 +1,6 @@
+ENV_VARS.txt
+
+.vscode/
+venv/
+
+*.pyc
