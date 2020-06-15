@@ -7,6 +7,7 @@ import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('PROD_DB_URI'))
+app.config=['SECRET_KEY'] = str(os.getenv('PROD_SECRET_KEY'))
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
