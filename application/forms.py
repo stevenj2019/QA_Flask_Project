@@ -31,7 +31,7 @@ class Register_Form(FlaskForm):
             Length=(mind=5 ,max=15)
         ]
     )
-    Phone_number = PhoneNumberField('Phone Numbers: ',
+    phone_number = PhoneNumberField('Phone Numbers: ',
         country_code='UK',
         display_format='national'
     )
@@ -41,12 +41,12 @@ class Register_Form(FlaskForm):
             Email()
         ]
     )
-    password = PasswordField(
+    password = PasswordField('Password: ',
         validators=[
             DataRequired()
         ] 
     )
-    confirm_password = PasswordField(
+    confirm_password = PasswordField('Confirm Password: ',
         validators=[
             DataRequired()
         ]
