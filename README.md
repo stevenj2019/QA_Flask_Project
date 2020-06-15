@@ -6,4 +6,4 @@ https://trello.com/b/C6OVfoPZ/qaa
 
 #ERD (Database) Diagram 
 
-![](Documenation_rss/ERD.png)
+![](Documentation_rss/ERD.png)
