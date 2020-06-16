@@ -1,14 +1,14 @@
 {% block body_content %}
-    <h1> Login </h1>
+    <h1> Admin Login </h1>
     <div class='form'>
         <form method="POST">
-            {{ form1.hidden_tag() }}
+            {{ form.hidden_tag() }}
             <div class='form_group'>
-                {{form1.email.label}}
-                {{form1.email}}
-                {% if form1.email.errors %}
+                {{form.email.label}}
+                {{form.email}}
+                {% if form.email.errors %}
                     <div class='error'>
-                        {% for error in form1.email.errors %}
+                        {% for error in form.email.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
@@ -16,11 +16,11 @@
             </div>
             <br>
             <div class='form_group'>
-                {{form1.password.label}}
-                {{form1.password}}
-                {% if form1.password.errors %}
+                {{form.password.label}}
+                {{form.password}}
+                {% if form.password.errors %}
                     <div class='error'>
-                        {% for error in form1.password.errors %}
+                        {% for error in form.password.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
@@ -28,94 +28,12 @@
             </div>
             <br>
             <div class='form_group'>
-                {{form1.remember.label}}
-                {{form1.remember}}
+                {{form.remember.label}}
+                {{form.remember}}
             </div>
             <br>
             <div class='form_group'>
-                {{form1.submit}}
-            </div>
-        </form>
-    </div>
-    <br>
-    <h1> or Register </h1>
-    <div class='form'>
-        <form method="POST">
-            {{ form2.hidden_tag() }}
-            <div class='form_group'>
-                {{ form2.first_name.label }}
-                {{ form2.first_name }}
-                {% if form2.first_name.errors %}
-                    <div class='error'>
-                        {% for error in form2.first_name.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-            <br>
-            <div class='form_group'>
-                {{ form2.last_name.label }}
-                {{ form2.last_name }}
-                {% if form2.last_name.errors %}
-                    <div class='error'>
-                        {% for error in form2.last_name.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-            <br>
-            <div class='form_group'>
-                {{ form2.phone_number.label }}
-                {{ form2.phone_number }}
-                {% if form2.phone_number.errors %}
-                    <div class='error'>
-                        {% for error in form2.phone_number.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-            <br>
-            <div class='form_group'>
-                {{ form2.email.label }}
-                {{ form2.email }}
-                {% if form2.email.errors %}
-                    <div class='error'>
-                        {% for error in form2.email.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-            <br>
-            <div class='form_group'>
-                {{ form2.password.label }}
-                {{ form2.password }}
-                {% if form2.password.errors %}
-                    <div class='error'>
-                        {% for error in form2.password.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-            <br>
-            <div class='form_group'>
-                {{ form2.confirm_password.label }}
-                {{ form2.confirm_password }}
-                {% if form2.confirm_password.errors %}
-                    <div class='error'>
-                        {% for error in form2.confirm_password.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-            <br>
-            <div class='form_group'>
-                {{ form2.submit }}
+                {{form.submit}}
             </div>
         </form>
     </div>

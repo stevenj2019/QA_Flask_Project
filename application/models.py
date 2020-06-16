@@ -1,24 +1,33 @@
 from application import db, login_manager
 from flask_login import UserMixin
 
-class Users(db.Model, UserMixin):
+class Admin(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
-    first_name = db.Column(db.String(30), nullable = False)
-    last_name = db.Column(db.String(30), nullable = False)
-    phone_number = db.Column(db.String(30), nullable = False)
     email = db.Column(db.String(150), nullable = False)
     password = db.Column(db.String(500), nullable = False)
-    office_address = db.relationship('Office_Locations', backref='full_address', lazy=True)
     
     def __repr__(self):
         return ''.join([
-            'Primary Key ID: ', str(self.id), '\n', 
-            'First Name: ', str(self.first_name), '\n',
-            'Last Name: ', str(self.last_name), '\n',
-            'Phone Number: ', str(self.phone_number), '\n',
             'Email: ', str(self.email), '\n', 
             'Password Hash', str(self.password), '\n',
-            'office_address', str(self.office_address)
+        ])
+
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    first_name = db.Column(db.String(10), nullable = False)
+    last_name = db.Column(db.string(20), nullable = False)
+    email_address = db.Column(db.string(30), nullable = False)
+    phone_number = db.Column(db.string(15), nullable = False)
+    office_location = db.relationship('Office_Locations', backref='address', lazy=True)
+    
+    def __repr__(self):
+        return ''.join([
+            'User ID: ', str(self.id), '\n',
+            'First Name: ', str(self.first_name), '\n',
+            'Last Name: ', str(self.last_name), '\n',
+            'Email Address: ', str(self.email_address), '\n',
+            'Phone Number: ', str(self.phone_number), '\n',
+            'Office Location', str(self.office_location), '\n'
         ])
 
 class Office_Locations(db.Model, UserMixin):

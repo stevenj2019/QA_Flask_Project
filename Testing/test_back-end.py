@@ -63,16 +63,6 @@ class TestViews(TestBase):
         self.assertEqual(self.client.get(url_for(auth)), 200)
 
 class TestUsers(TestBase):
-
-    def test_register(self):
-        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(self.user.first_name)
-        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(self.user.last_name)
-        self.driver.find_element_by_xpath('//*[@id="phone_number"]').send_keys(self.user.phone_number)
-        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(self.user.email)
-        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(self.user.password)
-        self.driver.find_element_by_xpath('//*[@id="confirm_password"]').send_keys(self.user.password)
-        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
-        assert bool(Users.query.filter_by(email=self.user.email.first())) == True
     
     def test_login(self):
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys()
