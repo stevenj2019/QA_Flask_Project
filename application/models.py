@@ -34,3 +34,7 @@ class Office_Locations(db.Model, UserMixin):
             'Second Line: ', str(self.second_line), '\n', 
             'Post Code: ', str(self.post_code)
         ])
+
+@login_manager.user_loader
+def load_user(id):
+    return Users.query.get(int(id))
