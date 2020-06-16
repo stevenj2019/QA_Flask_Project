@@ -18,4 +18,5 @@ if [ "$(whoami)" == "root" ] ; then
     echo "Downloaded and unzipped ChromeDriver for Selenium"
 else
     echo "Please run as root"
+    exit 1
 fi
