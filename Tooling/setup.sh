@@ -3,9 +3,11 @@ if [ "$(whoami)" == "root" ] ; then
     echo "Setting up your server"
     sudo DEBIAN_FRONTEND=noninteractive sudo apt-get update && sudo apt-get upgrade -qq < /dev/null > /dev/null
     echo "updated server apt cache"
+ 
+    sudo DEBIAN_FRONTEND=noninteractive sudo apt-get install python3-pip < /dev/null > /dev/null
+    echo "Installed Python pip"
 
-
-    sudo DEBIAN_FRONTEND=noninteractive pip3 install -r requirements.txt < /dev/null > /dev/null
+    sudo DEBIAN_FRONTEND=noninteractive pip3 install -r Tooling/requirements.txt < /dev/null > /dev/null
     echo "Installed pip dependencies"
     sudo DEBIAN_FRONTEND=noninteractive sudo apt-get install unzip -qq < /dev/null > /dev/null
     echo "Installed unzip"
