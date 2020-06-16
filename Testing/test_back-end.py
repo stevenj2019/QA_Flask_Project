@@ -1,8 +1,15 @@
 import unittest
+import time
 import os 
+
+from urllib.request import urlopen
 
 from flask import url_for
 from flask_testing import TestCase
+from flask_testing import LiveServerTestCase
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 from application import app, db, bcrypt
 from application.models import Admin, Contact, Office_Locations
@@ -34,7 +41,7 @@ class TestBase(TestCase):
         chrome_options = Options()
         chrome_options.binary_location = "/usr/bin/chromium-browser" 
         chrome_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(executable_path="Tooling/chromedriver", chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
         self.driver.get("http://localhost:5000")
 
         db.session.add(admin)
@@ -61,6 +68,7 @@ class TestViews(TestBase):
 class TestUsers(TestBase):
     
     def test_login(self):
+        self.driver.navigate().to(url_for(auth))
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys()
         self.driver.find_element_by_xpath('//*[@id="password"]').send_keys()
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
