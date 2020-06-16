@@ -1,14 +1,21 @@
 # QACProject
 
-# trello board
+# Finalised trello board
 
 https://trello.com/b/C6OVfoPZ/qaa
 
-# Risk Assesstment
+# Finalised ERD
+
+![](Documentation_rss/New_ERD.png)
+
+# Finalised Risk Assesstment
 
 Risk assestment can be found [Here](https://docs.google.com/spreadsheets/d/1e9dNWcu6ro9YcTkmCDNhyVzRHGwjEr3RxXqMkqxVKZE/edit?usp=sharing)
 
-# ERD (Database) Diagram 
+# Trello Board progress Tracking 
+
+
+# ERD (Database) Diagram Changes
 
 ![](Documentation_rss/Old_ERD.png)
 
@@ -20,3 +27,5 @@ However the Client Decided managing user accounts for each employee would be too
 They opted for a administrator based administrator
 
 ![](Documentation_rss/New_ERD.png)
+
+# Risk Assesstment Changes 
