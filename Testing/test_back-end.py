@@ -5,7 +5,7 @@ from flask import url_for
 from flask_testing import TestCase
 
 from application import app, db, bcrypt
-from application.models import Users, Office_Locations
+from application.models import Admin, Contacts, Office_Locations
 
 
 class TestBase(TestCase):
@@ -19,13 +19,9 @@ class TestBase(TestCase):
             WTF_CSRF_ENABLES=False,
             DEBUG=True
         )
-        self.user = Users(
-            first_name='john',
-            last_name='doe',
-            phone_number='07627365426',
+        self.user = Admin(
             email='john@doe.com', 
-            password=bcrypt.generate_password_hash('ThisPasswordSucks'),
-            office_address='London')
+            password=bcrypt.generate_password_hash('ThisPasswordSucks'))
         return app
 
     def setUp(self):
