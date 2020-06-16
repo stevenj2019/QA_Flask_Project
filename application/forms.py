@@ -17,43 +17,6 @@ class LoginForm(FlaskForm):
     )
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
-    
-class RegisterForm(FlaskForm):
-    first_name = StringField('First Name: ',
-        validators=[
-            DataRequired(),
-            Length(min=3, max=10)
-        ]
-    )
-    last_name = StringField('Last Name: ',
-        validators=[
-            DataRequired(),
-            Length(min=5 ,max=15)
-        ]
-    )
-    phone_number = StringField('Phone Numbers: ',
-        validators=[
-            DataRequired(),
-            Email()
-        ]
-    )
-    email = StringField('Email: ',
-        validators=[
-            DataRequired(),
-            Email()
-        ]
-    )
-    password = PasswordField('Password: ',
-        validators=[
-            DataRequired()
-        ] 
-    )
-    confirm_password = PasswordField('Confirm Password: ',
-        validators=[
-            DataRequired()
-        ]
-    )
-    submit = SubmitField('Register!')
 
     def validate_email(self,email):
         if email.data != current_user.email:
