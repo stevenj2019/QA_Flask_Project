@@ -15,9 +15,9 @@ class Admin(db.Model, UserMixin):
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     first_name = db.Column(db.String(10), nullable = False)
-    last_name = db.Column(db.string(20), nullable = False)
-    email_address = db.Column(db.string(30), nullable = False)
-    phone_number = db.Column(db.string(15), nullable = False)
+    last_name = db.Column(db.String(20), nullable = False)
+    email_address = db.Column(db.String(30), nullable = False)
+    phone_number = db.Column(db.String(15), nullable = False)
     office_location = db.relationship('Office_Locations', backref='address', lazy=True)
     
     def __repr__(self):
