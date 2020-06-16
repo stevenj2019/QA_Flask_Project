@@ -3,4 +3,6 @@ ENV_VARS.txt
 .vscode/
 venv/
 
+Tooling/chromedriver
+
 *.pyc
