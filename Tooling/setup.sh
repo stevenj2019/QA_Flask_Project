@@ -1,3 +1,4 @@
+
 if [ "$(whoami)" == "root" ] ; then
     echo "Setting up your server"
     sudo DEBIAN_FRONTEND=noninteractive sudo apt-get update && sudo apt-get upgrade -qq < /dev/null > /dev/null
