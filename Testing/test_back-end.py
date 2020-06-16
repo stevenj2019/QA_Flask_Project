@@ -5,7 +5,7 @@ from flask import url_for
 from flask_testing import TestCase
 
 from application import app, db, bcrypt
-from application.models import Admin, Contacts, Office_Locations
+from application.models import Admin, Contact, Office_Locations
 
 
 class TestBase(TestCase):
