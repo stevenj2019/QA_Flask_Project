@@ -13,7 +13,7 @@ class TestBase(TestCase):
     def create_app(self):
 
         config_name = 'testing'
-        app,config.update(
+        app.config.update(
             SQLALCHEMY_DATABASE_URI=os.getenv('TEST_DB_URI'),
             SECRET_KET=os.getenv('TEST_SECRET_KEY'), 
             WTF_CSRF_ENABLES=False,
@@ -22,11 +22,10 @@ class TestBase(TestCase):
         self.user = Users(
             first_name='john',
             last_name='doe',
-            phone_number='07627365426'
+            phone_number='07627365426',
             email='john@doe.com', 
             password=bcrypt.generate_password_hash('ThisPasswordSucks'),
             office_address='London')
-        )
         return app
 
     def setUp(self):
@@ -37,9 +36,9 @@ class TestBase(TestCase):
 
         print("--------------------------NEXT-TEST----------------------------------------------")
         chrome_options = Options()
-        chrome_options.binary_location = "/usr/bin/chromium-browser"
+        chrome_options.binary_location = "/usr/bin/chromium-browser" 
         chrome_options.add_argument("--headless")
-        self.driver = webdriver.Chrome(executable_path="<PATH TO chromedriver executable>", chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path="Tooling/chromedriver", chrome_options=chrome_options)
         self.driver.get("http://localhost:5000")
 
         db.session.add(admin)
