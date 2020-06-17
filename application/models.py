@@ -25,7 +25,7 @@ class Contacts(db.Model):
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_location = db.Column(db.Integer, db.Foreign_Key('Locations.id'), nullable = False)
+    office_location = db.Column(db.Integer, db.ForeignKey('Locations.id'), nullable = False)
 
 @login_manager.user_loader
 def load_user(id):
