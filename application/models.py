@@ -12,6 +12,22 @@ class Admin(db.Model, UserMixin):
             'Password Hash', str(self.password), '\n',
         ])
 
+class Office_Locations(db.Model, UserMixin):
+    id = db.Column(db.Integer, nullable = False)
+    city = db.Column(db.String(15), db.ForeignKey('Contact.office_location'), nullable = False)
+    location = db.Column(db.String(10), primary_key = True)
+    first_line = db.Column(db.String(30), nullable = False)
+    second_line = db.Column(db.String(30), nullable = True)
+    post_code = db.Column(db.String(10), nullable = False)
+        
+    def __repr__(self):
+    return ''.join([
+        'Location: ', str(self.location), '\n', 
+        'First Line: ', str(self.first_line), '\n'
+        'Second Line: ', str(self.second_line), '\n', 
+        'Post Code: ', str(self.post_code)
+    ])
+
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     first_name = db.Column(db.String(10), nullable = False)
@@ -28,22 +44,6 @@ class Contact(db.Model):
             'Email Address: ', str(self.email_address), '\n',
             'Phone Number: ', str(self.phone_number), '\n',
             'Office Location', str(self.office_location), '\n'
-        ])
-
-class Office_Locations(db.Model, UserMixin):
-    id = db.Column(db.Integer, nullable = False)
-    city = db.Column(db.String(15), db.ForeignKey('Contact.office_location'), nullable = False)
-    location = db.Column(db.String(10), primary_key = True)
-    first_line = db.Column(db.String(30), nullable = False)
-    second_line = db.Column(db.String(30), nullable = True)
-    post_code = db.Column(db.String(10), nullable = False)
-
-    def __repr__(self):
-        return ''.join([
-            'Location: ', str(self.location), '\n', 
-            'First Line: ', str(self.first_line), '\n'
-            'Second Line: ', str(self.second_line), '\n', 
-            'Post Code: ', str(self.post_code)
         ])
 
 @login_manager.user_loader
