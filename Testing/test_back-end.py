@@ -24,13 +24,7 @@ class TestBase(TestCase):
         self.user = Admin(
             email='john@doe.com', 
             password=bcrypt.generate_password_hash('ThisPasswordSucks'))
-        self.contact = Contact(
-            first_name = '',
-            last_name = '',
-            email_address = ''.
-            phone_number = '',
-            office_locations = ''
-        )
+
         db.session.add(self.user)
         db.session.add(self.contact)
         db.session.connect()
