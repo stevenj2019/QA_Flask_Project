@@ -1,9 +1,13 @@
 # QACProject
 
 -> Python3
--> Flask 
+
+-> Flask
+
 -> SQL Alchemy
+
 -> Selenium
+
 -> Pytest
 
 The Python Micro-Framework Flask is being utilised due to the high amount of integration with components to speed up development. for example SQLAlchemy Models and Flask_WTF Integration for validation and posting errors to the page using Jinja templating (HTML)
@@ -47,13 +51,14 @@ This includes the full system integrated to the Flask Application, with included
 # ERD 
 
 ![](Documentation_rss/Old_ERD.png)
+
 This was the original ERD. This was however changed to: 
 
 ![](Documentation_rss/ERD.png)
 
 Following Client Feedback and the decision to give users a mean to sign into the system
 
-# First Spring Details
+# First Sprint Details
 
 The Goal of the First Sprint was to build the user logon/registration system. 
 
