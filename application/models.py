@@ -11,11 +11,10 @@ class Admin(db.Model, UserMixin):
             'Email: ', str(self.email), '\n', 
             'Password Hash', str(self.password), '\n',
         ])
-
-connect = db.Table('connect',
-    db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
-    db.Column('location_id', db.Integer, db.ForeignKey('Locations.location_id'))
-)
+        
+class Connect(db.Model):
+    contact_id = db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
+    location_id = db.Column('location_id', db.Integer, db.ForeignKey('locations.location_id'))
 
 class Contact(db.Model):
     user_id = db.Column(db.Integer, primary_key = True)    
@@ -23,8 +22,8 @@ class Contact(db.Model):
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_locations = db.relationship('Locations', secondary=connect, backref=db.backref('Occupants', lazy='dynamic'))
-    
+    office_locations = db.relationship('Locations', secondary=Connect, backref=db.backref('Occupants', lazy='dynamic'))
+
 class Locations(db.Model):
     location_id = db.Column(db.Integer, primary_key = True)
     first_line = db.Column(db.String(15), nullable = False)
