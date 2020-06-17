@@ -12,17 +12,10 @@ class Admin(db.Model, UserMixin):
             'Password Hash', str(self.password), '\n',
         ])
 
-connect = db.Table('join',
+connect = db.Table('connect',
     db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
     db.Column('location_id', db.Integer, db.ForeignKey('Locations.location_id'))
 )
-
-class Locations(db.Model):
-    location_id = db.Column(db.Integer, primary_key = True)
-    first_line = db.Column(db.String(15), nullable = False)
-    second_line = db.Column(db.String(15), nullable = True)
-    city = db.Column(db.String(15), nullable = False)
-    post_code = db.Column(db.String(10), nullable = False)
 
 class Contact(db.Model):
     user_id = db.Column(db.Integer, primary_key = True)    
@@ -31,6 +24,13 @@ class Contact(db.Model):
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
     office_locations = db.relationship('Locations', secondary=connect, backref=db.backref('Occupants', lazy='dynamic'))
+    
+class Locations(db.Model):
+    location_id = db.Column(db.Integer, primary_key = True)
+    first_line = db.Column(db.String(15), nullable = False)
+    second_line = db.Column(db.String(15), nullable = True)
+    city = db.Column(db.String(15), nullable = False)
+    post_code = db.Column(db.String(10), nullable = False)
 
 @login_manager.user_loader
 def load_user(id):
