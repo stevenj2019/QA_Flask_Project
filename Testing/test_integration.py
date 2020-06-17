@@ -16,8 +16,8 @@ from application.models import Admin
 class TestBase(LiveServerTestCase):
 
     def create_app(self):
-        app.config['SQLALCHEMY_DATABASE_URI'] = str(getenv('TEST_DATABASE'))
-        app.config['SECRET_KEY'] = getenv('SKEY')
+        app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('TEST_DATABASE'))
+        app.config['SECRET_KEY'] = str(os.getenv('TEST_SECRET_KEY'))
         return app
 
     def setUp(self):
