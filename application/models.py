@@ -21,12 +21,12 @@ class Office_Locations(db.Model, UserMixin):
     post_code = db.Column(db.String(10), nullable = False)
         
     def __repr__(self):
-    return ''.join([
-        'Location: ', str(self.location), '\n', 
-        'First Line: ', str(self.first_line), '\n'
-        'Second Line: ', str(self.second_line), '\n', 
-        'Post Code: ', str(self.post_code)
-    ])
+        return ''.join([
+            'Location: ', str(self.location), '\n', 
+            'First Line: ', str(self.first_line), '\n'
+            'Second Line: ', str(self.second_line), '\n', 
+            'Post Code: ', str(self.post_code)
+        ])
 
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key = True)
