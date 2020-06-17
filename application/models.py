@@ -30,7 +30,7 @@ class Contact(db.Model):
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_locations = db.relationship('Locations', secondary=join, backref=db.backref('Occupants', lazy='dynamic'))
+    office_locations = db.relationship('Locations', secondary=connect, backref=db.backref('Occupants', lazy='dynamic'))
 
 @login_manager.user_loader
 def load_user(id):
