@@ -32,7 +32,7 @@ class Contact(db.Model):
 
 class Office_Locations(db.Model, UserMixin):
     id = db.Column(db.Integer, nullable = False)
-    city = db.column(db.string(15), db.ForeignKey('Contact.office_location'), nullable = False)
+    city = db.column(db.String(15), db.ForeignKey('Contact.office_location'), nullable = False)
     location = db.Column(db.String(10), primary_key = True)
     first_line = db.Column(db.String(30), nullable = False)
     second_line = db.Column(db.String(30), nullable = True)
