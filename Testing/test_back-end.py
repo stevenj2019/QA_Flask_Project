@@ -7,7 +7,7 @@ from flask import url_for
 from flask_testing import TestCase
 
 from application import app, db, bcrypt
-from application.models import Admin, Contact, Office_Locations
+from application.models import Admin
 
 
 class TestBase(TestCase):
@@ -25,9 +25,6 @@ class TestBase(TestCase):
             email='john@doe.com', 
             password=bcrypt.generate_password_hash('ThisPasswordSucks'))
 
-        db.session.add(self.user)
-        db.session.add(self.contact)
-        db.session.connect()
         return app
 
     def setUp(self):
@@ -37,19 +34,11 @@ class TestBase(TestCase):
         db.create_all()
 
         db.session.add(self.user)
-        db.session.add(self.contact)
         db.session.commit()
 
-        def tearDown(self):
-            self.driver.quit()
-            print("--------------------------END-OF-TEST----------------------------------------------\n\n\n-------------------------UNIT-AND-SELENIUM-TESTS----------------------------------------------")
-            db.session.remove()
-            db.drop_all()
-
-        def test_server_is_alive(self):
-            response = urlopen("http://localhost:5000")
-            self.assertEqual(response.code, 200)
-   
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
 
 class TestViews(TestBase):
 

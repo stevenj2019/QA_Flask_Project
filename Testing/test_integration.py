@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.options import Options
 from urllib.request import urlopen
 
 from application import app, db, bcrypt
-from application.models import Office_Locations, Admin, Contact
+from application.models import Admin
 
 class TestBase(LiveServerTestCase):
 
