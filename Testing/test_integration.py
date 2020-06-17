@@ -41,12 +41,14 @@ class TestBase(LiveServerTestCase):
         self.assertEqual(response.code, 200)
 
 class TestLogin(TestBase):
-    user = Admin(
-        email='john@doe.com', 
-        password=bcrypt.generate_password_hash('ThisPasswordSucks'))
 
-    TestBase.driver.navigate().to(url_for(auth))
-    self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(user.email)
-    self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(user.password)
-    self.driver.find_element_by_xpath('//*[@id="submit"]').click()
-    assert url_for('home') in self.driver.current_url
+    def test_login(self):
+        user = Admin(
+            email='john@doe.com', 
+            password=bcrypt.generate_password_hash('ThisPasswordSucks'))
+
+        self.driver.navigate().to(url_for(auth))
+        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(user.email)
+        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(user.password)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        assert url_for('home') in self.driver.current_url
