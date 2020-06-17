@@ -4,5 +4,6 @@ ENV_VARS.txt
 venv/
 
 Tooling/chromedriver
+Tooling/Flask.service
 
 *.pyc
