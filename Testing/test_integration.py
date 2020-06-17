@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options
 
 from urllib.request import urlopen
 
-from application app, db, bcrypt
+from application import app, db, bcrypt
 from application.models import Office_Locations, Admin, Contact
 
 class TestBase(LiveServerTestCase):
