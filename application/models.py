@@ -14,7 +14,7 @@ class Admin(db.Model, UserMixin):
 
 connect = db.Table('join',
     db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
-    db.Column('location_id', db.Integer, db.ForeignKet('Locations.location_id'))
+    db.Column('location_id', db.Integer, db.ForeignKey('Locations.location_id'))
 )
 
 class Locations(db.Model):
