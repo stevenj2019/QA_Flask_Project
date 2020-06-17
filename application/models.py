@@ -11,9 +11,9 @@ class Admin(db.Model, UserMixin):
             'Email: ', str(self.email), '\n', 
             'Password Hash', str(self.password), '\n',
         ])
-        
+
 class Connect(db.Model):
-    contact_id = db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
+    contact_id = db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id'), primary_key = True),
     location_id = db.Column('location_id', db.Integer, db.ForeignKey('locations.location_id'))
 
 class Contact(db.Model):
