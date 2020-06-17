@@ -12,39 +12,20 @@ class Admin(db.Model, UserMixin):
             'Password Hash', str(self.password), '\n',
         ])
 
-class Office_Locations(db.Model, UserMixin):
-    id = db.Column(db.Integer, nullable = False)
-    city = db.Column(db.String(15), db.ForeignKey('Contact.office_location'), nullable = False)
-    location = db.Column(db.String(10), primary_key = True)
-    first_line = db.Column(db.String(30), nullable = False)
-    second_line = db.Column(db.String(30), nullable = True)
-    post_code = db.Column(db.String(10), nullable = False)
-        
-    def __repr__(self):
-        return ''.join([
-            'Location: ', str(self.location), '\n', 
-            'First Line: ', str(self.first_line), '\n'
-            'Second Line: ', str(self.second_line), '\n', 
-            'Post Code: ', str(self.post_code)
-        ])
-
-class Contact(db.Model):
+class Locations(db.Model):
     id = db.Column(db.Integer, primary_key = True)
+    first_line = db.Column(db.String(15), nullable = False)
+    second_line = db.Column(db.String(15), nullable = True)
+    post_code = db.Column(db.String(10), nullable = False)
+    occupants = db.relationship('Contacts', backref='Users', lazy=True)
+
+class Contacts(db.Model):
+    id = db.Column(db.Integer, primary_key = True)    
     first_name = db.Column(db.String(10), nullable = False)
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_location = db.relationship('Office_Locations', backref='Address', lazy=True)
-    
-    def __repr__(self):
-        return ''.join([
-            'User ID: ', str(self.id), '\n',
-            'First Name: ', str(self.first_name), '\n',
-            'Last Name: ', str(self.last_name), '\n',
-            'Email Address: ', str(self.email_address), '\n',
-            'Phone Number: ', str(self.phone_number), '\n',
-            'Office Location', str(self.office_location), '\n'
-        ])
+    office_location = db.Column(db.Integer, db.Foreign_Key('Locations.id'), nullable = False)
 
 @login_manager.user_loader
 def load_user(id):
