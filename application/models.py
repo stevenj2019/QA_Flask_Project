@@ -13,7 +13,7 @@ class Admin(db.Model, UserMixin):
         ])
 
 class Connect(db.Model):
-    contact_id = db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id'), primary_key = True),
+    contact_id = db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
     location_id = db.Column('location_id', db.Integer, db.ForeignKey('locations.location_id'))
 
 class Contact(db.Model):
@@ -22,7 +22,7 @@ class Contact(db.Model):
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_locations = db.relationship('Locations', secondary='Connect', backref=db.backref('Occupants', lazy='dynamic'))
+    office_locations = db.relationship('Locations', secondary='Connect', backref=db.backref('occupants', lazy='dynamic'))
 
 class Locations(db.Model):
     location_id = db.Column(db.Integer, primary_key = True)
