@@ -45,7 +45,7 @@ class TestLogin(TestBase):
         email='john@doe.com', 
         password=bcrypt.generate_password_hash('ThisPasswordSucks'))
 
-    self.driver.navigate().to(url_for(auth))
+    TestBase.driver.navigate().to(url_for(auth))
     self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(user.email)
     self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(user.password)
     self.driver.find_element_by_xpath('//*[@id="submit"]').click()
