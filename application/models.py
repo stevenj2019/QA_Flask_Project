@@ -17,7 +17,7 @@ class Connect(db.Model):
     location_id = db.Column('location_id', db.Integer, db.ForeignKey('locations.location_id'))
 
 class Contact(db.Model):
-    user_id = db.Column(db.Integer, primary_key = True)    
+    contact_id = db.Column(db.Integer, primary_key = True)    
     first_name = db.Column(db.String(10), nullable = False)
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
