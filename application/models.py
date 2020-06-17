@@ -12,20 +12,25 @@ class Admin(db.Model, UserMixin):
             'Password Hash', str(self.password), '\n',
         ])
 
+connect = db.Table('join',
+    db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
+    db.Column('location_id', db.Integer, db.ForeignKet('Locations.location_id'))
+)
+
 class Locations(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    location_id = db.Column(db.Integer, primary_key = True)
     first_line = db.Column(db.String(15), nullable = False)
     second_line = db.Column(db.String(15), nullable = True)
+    city = db.Column(db.String(15), nullable = False)
     post_code = db.Column(db.String(10), nullable = False)
-    occupants = db.relationship('Contacts', backref='Users', lazy=True)
 
 class Contact(db.Model):
-    id = db.Column(db.Integer, primary_key = True)    
+    user_id = db.Column(db.Integer, primary_key = True)    
     first_name = db.Column(db.String(10), nullable = False)
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_location = db.Column(db.Integer, db.ForeignKey('Locations.id'), nullable = False)
+    office_locations = db.relationship('Locations', secondary=join, backref=db.backref('Occupants', lazy='dynamic'))
 
 @login_manager.user_loader
 def load_user(id):
