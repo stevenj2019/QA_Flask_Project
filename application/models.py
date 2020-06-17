@@ -22,7 +22,7 @@ class Contact(db.Model):
     last_name = db.Column(db.String(20), nullable = False)
     email_address = db.Column(db.String(30), nullable = False)
     phone_number = db.Column(db.String(15), nullable = False)
-    office_locations = db.relationship('Locations', secondary=Connect, backref=db.backref('Occupants', lazy='dynamic'))
+    office_locations = db.relationship('Locations', secondary='Connect', backref=db.backref('Occupants', lazy='dynamic'))
 
 class Locations(db.Model):
     location_id = db.Column(db.Integer, primary_key = True)
@@ -30,6 +30,7 @@ class Locations(db.Model):
     second_line = db.Column(db.String(15), nullable = True)
     city = db.Column(db.String(15), nullable = False)
     post_code = db.Column(db.String(10), nullable = False)
+    occupants = db.relationship('Contact', secondary='Connect', backref=db.backref('Address', lazy='dynamic'))
 
 @login_manager.user_loader
 def load_user(id):
