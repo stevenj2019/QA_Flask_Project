@@ -1,5 +1,5 @@
 from application import db
-from application.models import Office_Locations
+from application.models import Office_Locations, Admin, Contact
 
 db.drop_all()
 db.create_all()
