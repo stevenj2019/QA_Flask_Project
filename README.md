@@ -61,3 +61,18 @@ This was the original ERD. This was however changed to:
 ![](Documentation_rss/ERD.png)
 
 Following Client Feedback and the decision to give users a mean to sign into the system
+
+# Second Sprint
+
+Using Trello we have further decided what we will be doing this sprint. 
+
+
+![](Documentation_rss/Sprint2Tasks.png)
+
+This sprint is focussed much more on the core functionality alongside building in usability with basic formatting of pages in order to establish our MVP. 
+
+The Prototype for the main page is shown below 
+
+![](Documentation_rss/Sprint2Proto.png)
+
+This will allow us to make a nice and easy to use application with minimal overhead from a design perspective 
