@@ -1,2 +1,15 @@
-
-html code
+<html>
+    <head>
+        <title>My Cool App</title>
+    </head>
+    <body>
+        <div>
+            <a href="{{ url_for('home') }}">back to home</a>
+            {% if current_user.isauthenticated %}
+                <a href="{{ url_for('logout') }}">logout</a>
+            {% else %}
+                <a href="{{ url_for('auth') }}">login</a>
+            {% endif %}
+        </div>
+    </body>
+</html>
