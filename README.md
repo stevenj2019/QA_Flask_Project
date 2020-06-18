@@ -50,6 +50,8 @@ This includes the full system integrated to the Flask Application, with included
 
 ![](Documentation_rss/Sprint1Tests.png)
 
+Although this test coverage seems lower than you might expect. This is due to additional functionality needing to be built in due to short comings in the testing procedure. additional tests will be build for the core features we implemented early as well as the more advances ones on top. This will bring up the overall test coverage. 
+
 The ERD also went through changes during the first sprint as you can below 
 
 ![](Documentation_rss/Old_ERD.png)
