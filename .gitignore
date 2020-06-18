@@ -1,4 +1,5 @@
 ENV_VARS.txt
+.DS_Store
 
 .vscode/
 venv/

@@ -48,18 +48,7 @@ As well as this is one of the more advances features as you can see from the bel
 
 This includes the full system integrated to the Flask Application, with included Integration and Unit Testing so we can continue to ensure it works throughout the project as smaller features are added 
 
-
-Testing/test_back-end.py .                                               [ 25%]
-Testing/test_integration.py ...                                          [100%]
-
-Name                      Stmts   Miss  Cover
----------------------------------------------
-application/__init__.py      13      0   100%
-application/forms.py         14      4    71%
-application/models.py        10      2    80%
-application/routes.py        19     10    47%
----------------------------------------------
-TOTAL                        56     16    71%
+!()[Documentation_rss/Sprint1Tests.png]
 
 # ERD 
 
