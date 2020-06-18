@@ -48,20 +48,11 @@ As well as this is one of the more advances features as you can see from the bel
 
 This includes the full system integrated to the Flask Application, with included Integration and Unit Testing so we can continue to ensure it works throughout the project as smaller features are added 
 
+![](Documentation_rss/Sprint1Tests.png)
 
-Testing/test_back-end.py .                                               [ 25%]
-Testing/test_integration.py ...                                          [100%]
+Although this test coverage seems lower than you might expect. This is due to additional functionality needing to be built in due to short comings in the testing procedure. additional tests will be build for the core features we implemented early as well as the more advances ones on top. This will bring up the overall test coverage. 
 
-Name                      Stmts   Miss  Cover
----------------------------------------------
-application/__init__.py      13      0   100%
-application/forms.py         14      4    71%
-application/models.py        10      2    80%
-application/routes.py        19     10    47%
----------------------------------------------
-TOTAL                        56     16    71%
-
-# ERD 
+The ERD also went through changes during the first sprint as you can below 
 
 ![](Documentation_rss/Old_ERD.png)
 
@@ -70,13 +61,3 @@ This was the original ERD. This was however changed to:
 ![](Documentation_rss/ERD.png)
 
 Following Client Feedback and the decision to give users a mean to sign into the system
-
-# First Sprint Details
-
-The Goal of the First Sprint was to build the user logon/registration system. 
-
-![](Documentation_rss/Sprint1Tasks)
-
-# First Sprint Test Results
-
-
