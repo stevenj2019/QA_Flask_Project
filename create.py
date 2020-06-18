@@ -1,10 +1,10 @@
 from application import db
-from application.models import Office_Locations
+from application.models import Office_Locations, Admin, Contact
 
 db.drop_all()
 db.create_all()
 
-with open("office_location_data.csv", "r") as Data:
+with open("Tooling/office_location_data.csv", "r") as Data:
     for line in Data:
         DATASTREAM = line.split(',')
         Location_Data = Office_Locations(

@@ -12,37 +12,25 @@ class Admin(db.Model, UserMixin):
             'Password Hash', str(self.password), '\n',
         ])
 
-class Contact(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    first_name = db.Column(db.String(10), nullable = False)
-    last_name = db.Column(db.string(20), nullable = False)
-    email_address = db.Column(db.string(30), nullable = False)
-    phone_number = db.Column(db.string(15), nullable = False)
-    office_location = db.relationship('Office_Locations', backref='address', lazy=True)
-    
-    def __repr__(self):
-        return ''.join([
-            'User ID: ', str(self.id), '\n',
-            'First Name: ', str(self.first_name), '\n',
-            'Last Name: ', str(self.last_name), '\n',
-            'Email Address: ', str(self.email_address), '\n',
-            'Phone Number: ', str(self.phone_number), '\n',
-            'Office Location', str(self.office_location), '\n'
-        ])
+#class Connect(db.Model):
+#    contact_id = db.Column('contact_id', db.Integer, db.ForeignKey('contact.contact_id')),
+#    location_id = db.Column('location_id', db.Integer, db.ForeignKey('locations.location_id'))
 
-class Office_Locations(db.Model, UserMixin):
-    location = db.Column(db.String(10), primary_key = True)
-    first_line = db.Column(db.String(30), nullable = False)
-    second_line = db.Column(db.String(30), nullable = True)
-    post_code = db.Column(db.String(10), nullable = False)
+#class Contact(db.Model):
+#    contact_id = db.Column(db.Integer, primary_key = True)    
+#    first_name = db.Column(db.String(10), nullable = False)
+#    last_name = db.Column(db.String(20), nullable = False)
+#    email_address = db.Column(db.String(30), nullable = False)
+#    phone_number = db.Column(db.String(15), nullable = False)
+#    office_locations = db.relationship('Locations', secondary='Connect', backref=db.backref('occupants', lazy='dynamic'))
 
-    def __repr__(self):
-        return ''.join([
-            'Location: ', str(self.location), '\n', 
-            'First Line: ', str(self.first_line), '\n'
-            'Second Line: ', str(self.second_line), '\n', 
-            'Post Code: ', str(self.post_code)
-        ])
+#class Locations(db.Model):
+#    location_id = db.Column(db.Integer, primary_key = True)
+#    first_line = db.Column(db.String(15), nullable = False)
+#    second_line = db.Column(db.String(15), nullable = True)
+#    city = db.Column(db.String(15), nullable = False)
+#    post_code = db.Column(db.String(10), nullable = False)
+#    occupants = db.relationship('Contact', secondary='Connect', backref=db.backref('Address', lazy='dynamic'))
 
 @login_manager.user_loader
 def load_user(id):
