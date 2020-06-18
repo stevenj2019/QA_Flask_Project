@@ -48,9 +48,9 @@ As well as this is one of the more advances features as you can see from the bel
 
 This includes the full system integrated to the Flask Application, with included Integration and Unit Testing so we can continue to ensure it works throughout the project as smaller features are added 
 
-!()[Documentation_rss/Sprint1Tests.png]
+![](Documentation_rss/Sprint1Tests)
 
-# ERD 
+The ERD also went through changes during the first sprint as you can below 
 
 ![](Documentation_rss/Old_ERD.png)
 
@@ -60,12 +60,6 @@ This was the original ERD. This was however changed to:
 
 Following Client Feedback and the decision to give users a mean to sign into the system
 
-# First Sprint Details
 
-The Goal of the First Sprint was to build the user logon/registration system. 
-
-![](Documentation_rss/Sprint1Tasks)
-
-# First Sprint Test Results
 
 
