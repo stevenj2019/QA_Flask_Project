@@ -1,10 +1,19 @@
 from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from application import app, db, bcrypt, login_manager
-from application.models import Admin
+from application.models import Admin, Contact, Locations
 from application.forms import LoginForm
 
 from application import app 
+
+@app.route('/')
+def home():
+    contacts = Contact.query.all()
+    return render_template('home.html')
+
+@app.route('/newcontact')
+def new():
+    return False
 
 @app.route('/adminlogin', methods=['GET', 'POST'])
 def auth():
@@ -20,6 +29,4 @@ def auth():
         print(form.errors)
     return render_template('auth.html', form = form)
 
-@app.route('/')
-def home():
-    return render_template('home.html')
+
