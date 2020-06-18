@@ -44,4 +44,4 @@ class TestViews(TestBase):
 
     #unauthenticated pages
     def test_auth_view(self):
-        self.assertEqual(self.client.get(url_for('auth')), '<TestResponse streamed [200 OK]>')
+        self.assertEqual(self.client.get(url_for('home')).status_code, 200)
