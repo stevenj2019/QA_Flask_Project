@@ -46,6 +46,8 @@ class TestLogin(TestBase):
         user = Admin(
             email='john@doe.com', 
             password=bcrypt.generate_password_hash('ThisPasswordSucks'))
+        db.session.add(user)
+        db.session.commit()
 
         self.driver.find_element_by_xpath('/html/body/div/a[2]').click()
         time.sleep(5)
