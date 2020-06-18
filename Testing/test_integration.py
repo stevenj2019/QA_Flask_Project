@@ -38,7 +38,7 @@ class TestBase(LiveServerTestCase):
 
     def test_server_is_up_and_running(self):
         response = urlopen("http://localhost:5000")
-        self.assertEqual(response.code, '<TestResponse streamed [200 OK]>')
+        self.assertEqual(response.code, 200)
 
 class TestLogin(TestBase):
 
