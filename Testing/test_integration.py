@@ -50,6 +50,6 @@ class TestLogin(TestBase):
         self.driver.find_element_by_xpath('/html/body/div/a[2]').click()
         time.sleep(5)
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(user.email)
-        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(user.password)
+        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys('ThisPasswordSucks')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
