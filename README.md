@@ -48,7 +48,7 @@ As well as this is one of the more advances features as you can see from the bel
 
 This includes the full system integrated to the Flask Application, with included Integration and Unit Testing so we can continue to ensure it works throughout the project as smaller features are added 
 
-![](Documentation_rss/Sprint1Tests)
+![](Documentation_rss/Sprint1Tests.png)
 
 The ERD also went through changes during the first sprint as you can below 
 
