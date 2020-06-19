@@ -14,7 +14,7 @@ def home():
 @app.route('/newcontact', methods=['GET', 'POST'])
 def new():
     form = NewContactForm()
-    cities = Locations.query().all()
+    cities = Locations.query.all()
     for city in cities:
         form.options.append(city.city)
 
