@@ -55,6 +55,3 @@ class NewContactForm(FlaskForm):
         )
 
     submit = SubmitField()
-
-class EditContactForm(FlaskForm):
-    
