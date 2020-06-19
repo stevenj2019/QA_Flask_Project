@@ -66,12 +66,12 @@ class TestNewContact(TestBase):
             phone_number = '+446251893271',
             location_id = None
         )
-        self.driver.find_element_by_xpath('').click()
+        self.driver.find_element_by_xpath('').click() #still need to add the click to the new page (requires auth)
         time.sleep(5)
-        self.driver.find_element_by_xpath('').send_keys(contact.first_name)
-        self.driver.find_element_by_xpath('').send_keys(contact.last_name)
-        self.driver.find_element_by_xpath('').send_keys(contact.email_address)
-        self.driver.find_element_by_xpath('').send_keys(contact.phone_number)
-        self.driver.find_element_by_xpath('').send_keys('Manchester')
-        self.driver.find_element_by_xpath('').click()
+        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(contact.first_name)
+        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(contact.last_name)
+        self.driver.find_element_by_xpath('//*[@id="email_address"]').send_keys(contact.email_address)
+        self.driver.find_element_by_xpath('//*[@id="phone_number"]').send_keys(contact.phone_number)
+        self.driver.find_element_by_xpath('//*[@id="city"]').send_keys('Manchester')
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url

@@ -7,12 +7,9 @@
             <ul style='list-style-type: none; margin: 0; padding: 0;'>
                 <li style="display: inline;"><a> Cloud Contacts </a></li>
                 <li style="display: inline;"><a href="{{ url_for('home') }}">back to home</a></li>
-                {% if current_user.is_authenticated %}
-                    <li style='display: inline;'><a href="{{ url_for('new') }}">new contact</a></li>
-                    <li style="display: inline;"><a href="{{ url_for('logout') }}">logout</a></li>
-                {% else %}
-                    <li style="display: inline;"><a href="{{ url_for('auth') }}">login</a></li>
-                {% endif %}
+                <li style='display: inline;'><a href="{{ url_for('new') }}">new contact</a></li>
+                <li style="display: inline;"><a href="{{ url_for('logout') }}">logout</a></li>
+                <li style="display: inline;"><a href="{{ url_for('auth') }}">login</a></li>
             </ul>
         </div>
         <table>
