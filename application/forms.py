@@ -47,12 +47,9 @@ class NewContactForm(FlaskForm):
             DataRequired()
         ]
     )
-    cities = Locations.query.all()
-    locations=[]
-    for city in cities:
-        locations.append(city.city)
     city = SelectField('City',
-        options=locations,
+        choices = [],
+        coerce=int,
         validators=[
             DataRequired()
             ]
