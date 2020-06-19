@@ -16,24 +16,24 @@ def new():
     form = NewContactForm()
     cities = Locations.query.all()
     for city in cities:
-        form.city.choices.append(str(city.city))
+        form.city.choices.append(tuple(city.location_id ,city.city))
 
     if form.validate_on_submit() == False:
-        print(form.errors)
-    else:
-        if isinstance(str(form.city.data), str):
-            location = Locations.query.filter_by(form.city.data).first()
-            Data = Contact(
-                first_name = form.first_name.data,
-                last_name = form.last_name.data, 
-                email_address = form.email_address.data,
-                phone_number = form.phone_number.data,
-                location_id = str(form.city.data)
-            )
-            db.session.add(Data)
-            db.session.commit()
-            return redirect(url_for('home'))
+        location = Locations.query.filter_by(form.city.data).first()
+        Data = Contact(
+            first_name = form.first_name.data,
+            last_name = form.last_name.data, 
+            email_address = form.email_address.data,
+            phone_number = form.phone_number.data,
+            location_id = str(form.city.data)
+        )
+        db.session.add(Data)
+        db.session.commit()
 
+        return redirect(url_for('home'))
+    else:
+        print(form.city.data)
+        print(form.errors)
     
     return render_template('new_contact.html', form=form)
 
