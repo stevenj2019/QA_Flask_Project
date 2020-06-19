@@ -49,7 +49,7 @@ class TestLogin(TestBase):
         db.session.add(user)
         db.session.commit()
 
-        self.driver.find_element_by_xpath('/html/body/div/a[2]').click()
+        self.driver.find_element_by_xpath('/html/body/div/ul/li[4]/').click()
         time.sleep(5)
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(user.email)
         self.driver.find_element_by_xpath('//*[@id="password"]').send_keys('ThisPasswordSucks')
