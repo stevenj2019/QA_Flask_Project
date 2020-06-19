@@ -32,6 +32,7 @@ def new():
 
         return redirect(url_for('home'))
     else:
+        print(form.city.data)
         print(form.errors)
     
     return render_template('new_contact.html', form=form)
