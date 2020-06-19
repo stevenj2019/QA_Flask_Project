@@ -66,7 +66,7 @@ class TestNewContact(TestBase):
             phone_number = '+446251893271',
             location_id = None
         )
-        self.driver.find_element_by_xpath('').click() #still need to add the click to the new page (requires auth)
+        self.driver.find_element_by_xpath('/html/body/div/ul/li[3]/a').click() #still need to add the click to the new page (requires auth)
         time.sleep(5)
         self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(contact.first_name)
         self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(contact.last_name)
