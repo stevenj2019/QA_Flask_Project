@@ -51,4 +51,12 @@ def auth():
         print(form.errors)
     return render_template('auth.html', form = form)
 
+@app.route('/delete/<user_id>')
+def delete(user_id):
+    Contact = Contacts.query.filter_by(id=user_id).first()
+    db.session.delete(Contact)
+    db.session.commit()
+    return redirect(url_for('register'))
+
+
 
