@@ -25,7 +25,7 @@ def new():
             last_name = form.last_name.data, 
             email_address = form.email_address.data,
             phone_number = form.phone_number.data,
-            location_id = form.city.data[0]
+            location_id = form.city.data
         )
         db.session.add(Data)
         db.session.commit()
