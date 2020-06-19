@@ -26,6 +26,7 @@ class LoginForm(FlaskForm):
                 raise ValidationError('Email already in use')
 
 class NewContactForm(FlaskForm):
+
     first_name = StringField('First Name',
         validators=[
             DataRequired()
@@ -49,7 +50,7 @@ class NewContactForm(FlaskForm):
     )
     city = SelectField('City',
         choices = [],
-        coerce=int,
+        #coerce=int,
         validators=[
             DataRequired()
             ]
