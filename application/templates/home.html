@@ -21,11 +21,11 @@
             </tr>
             {% for contact in contacts %}
                 <tr>
-                    <td>contact.first_name</a></td>
-                    <td>contact.last_name</td>
-                    <td>contact.email_address</td>
-                    <td>contact.phone_number</td>
-                    <td>contact.location.city</td>
+                    <td>{{contact.first_name}}</a></td>
+                    <td>{{contact.last_name}}</td>
+                    <td>{{contact.email_address}}</td>
+                    <td>{{contact.phone_number}}</td>
+                    <td>{{contact.location.city}}</td>
                     <td><a href="">View More!</a></td>
                 </tr>
             {% endfor %}
