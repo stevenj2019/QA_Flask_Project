@@ -7,12 +7,8 @@
             <ul style='list-style-type: none; margin: 0; padding: 0;'>
                 <li style="display: inline;"><a> Cloud Contacts </a></li>
                 <li style="display: inline;"><a href="{{ url_for('home') }}">back to home</a></li>
-                {% if current_user.is_authenticated %}
-                    <li stylre='display: inline;'><a href="{{ url_for('') }}"</li>
-                    <li style="display: inline;"><a href="{{ url_for('logout') }}">logout</a></li>
-                {% else %}
-                    <li style="display: inline;"><a href="{{ url_for('auth') }}">login</a></li>
-                {% endif %}
+                <li style='display: inline;'><a href="{{ url_for('new') }}">new contact</a></li>
+                <li style="display: inline;"><a href="{{ url_for('auth') }}">login</a></li>
             </ul>
         </div>
         <table>
@@ -23,13 +19,13 @@
                 <th>Phone Number</th>
                 <th>Office Location(s)</th>
             </tr>
-            {% for each contact in contacts %}
+            {% for contact in contacts %}
                 <tr>
-                    <td>contact.first_name</a></td>
-                    <td>contact.last_name</td>
-                    <td>contact.email_address</td>
-                    <td>contact.phone_number</td>
-                    <td>contact.location.city</td>
+                    <td>{{contact.first_name}}</a></td>
+                    <td>{{contact.last_name}}</td>
+                    <td>{{contact.email_address}}</td>
+                    <td>{{contact.phone_number}}</td>
+                    <td>{{contact.location.city}}</td>
                     <td><a href="">View More!</a></td>
                 </tr>
             {% endfor %}

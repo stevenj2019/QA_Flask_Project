@@ -22,8 +22,8 @@ class Contact(db.Model):
 
 class Locations(db.Model):
     location_id = db.Column(db.Integer, primary_key = True)
-    first_line = db.Column(db.String(15), nullable = False)
-    second_line = db.Column(db.String(15), nullable = True)
+    first_line = db.Column(db.String(30), nullable = False)
+    second_line = db.Column(db.String(30), nullable = True)
     city = db.Column(db.String(15), nullable = False)
     post_code = db.Column(db.String(10), nullable = False)
     contact = db.relationship('Contact', backref='location', lazy=True)
