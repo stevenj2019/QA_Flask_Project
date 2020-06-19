@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.options import Options
 from urllib.request import urlopen
 
 from application import app, db, bcrypt
-from application.models import Admin
+from application.models import Admin, Contact, Locations
 
 class TestBase(LiveServerTestCase):
 
@@ -54,4 +54,24 @@ class TestLogin(TestBase):
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(user.email)
         self.driver.find_element_by_xpath('//*[@id="password"]').send_keys('ThisPasswordSucks')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        assert url_for('home') in self.driver.current_url
+
+class TestNewContact(TestBase):
+
+    def test_new(self):
+        contact = Contact(
+            first_name = 'John',
+            last_name = 'Johnson',
+            email_address = 'john@johnson.john',
+            phone_number = '+446251893271',
+            location_id = None
+        )
+        self.driver.find_element_by_xpath('').click()
+        time.sleep(5)
+        self.driver.find_element_by_xpath('').send_keys(contact.first_name)
+        self.driver.find_element_by_xpath('').send_keys(contact.last_name)
+        self.driver.find_element_by_xpath('').send_keys(contact.email_address)
+        self.driver.find_element_by_xpath('').send_keys(contact.phone_number)
+        self.driver.find_element_by_xpath('').send_keys('Manchester')
+        self.driver.find_element_by_xpath('').click()
         assert url_for('home') in self.driver.current_url

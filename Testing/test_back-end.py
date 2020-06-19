@@ -42,6 +42,11 @@ class TestBase(TestCase):
 
 class TestViews(TestBase):
 
-    #unauthenticated pages
     def test_auth_view(self):
+        self.assertEqual(self.client.get(url_for('auth')).status_code, 200)
+
+    def test_home_view(self):
         self.assertEqual(self.client.get(url_for('home')).status_code, 200)
+
+    def test_new_contact_view(self):
+        self.assertEqual(self.client.get(url_for('new')).status_code, 200)
