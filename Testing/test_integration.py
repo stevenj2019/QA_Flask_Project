@@ -75,3 +75,10 @@ class TestNewContact(TestBase):
         self.driver.find_element_by_xpath('//*[@id="city"]').send_keys('Manchester')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
+
+class TestDeleteContact(TestBase):
+
+    def test_deletion(self):
+        self.driver.find_element_by_xpath('').click()
+        time.sleep(5)
+        assert Contact.query.filter_by(contact_id = 1).first() == False
