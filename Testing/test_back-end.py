@@ -7,7 +7,7 @@ from flask import url_for
 from flask_testing import TestCase
 
 from application import app, db, bcrypt
-from application.models import Admin
+from application.models import Admin, Contact
 
 
 class TestBase(TestCase):
@@ -50,3 +50,7 @@ class TestViews(TestBase):
 
     def test_new_contact_view(self):
         self.assertEqual(self.client.get(url_for('new')).status_code, 200)
+
+    def test_indb(self):
+        self.assertFalse(self.Contact.query.filter_by(id).first(), id)  
+    

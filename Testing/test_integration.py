@@ -75,3 +75,6 @@ class TestNewContact(TestBase):
         self.driver.find_element_by_xpath('//*[@id="city"]').send_keys('Manchester')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
+
+    def test_isposted(self):
+        assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr/tb[1]/text()') == 'John'
