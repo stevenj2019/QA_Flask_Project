@@ -50,7 +50,7 @@ class NewContactForm(FlaskForm):
     )
     city = SelectField('City',
         choices = [],
-        #coerce=int,
+        coerce=int,
         validators=[
             DataRequired()
             ]
