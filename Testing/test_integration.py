@@ -75,5 +75,3 @@ class TestNewContact(TestBase):
         self.driver.find_element_by_xpath('//*[@id="city"]').send_keys('Manchester')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
-        #tests if appears on the home page
-        assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[1]/text()').lower() == 'john' 
