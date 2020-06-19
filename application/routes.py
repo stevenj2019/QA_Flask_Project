@@ -16,9 +16,9 @@ def new():
     form = NewContactForm()
     cities = Locations.query.all()
     for city in cities:
-        form.city.choices.append(city.city)
+        form.city.choices.append(str(city.city))
 
-    if validate_on_submit():
+    if form.validate_on_submit():
         location = Locations.query.filter_by(form.city.data).first()
         Data = Contact(
             first_name = form.first_name.data,
@@ -35,7 +35,7 @@ def new():
     else:
         print(form.errors)
     
-    return render_template('new_contact.html', form=form, options=options)
+    return render_template('new_contact.html', form=form)
 
 @app.route('/adminlogin', methods=['GET', 'POST'])
 def auth():
