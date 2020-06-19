@@ -16,9 +16,9 @@ def new():
     form = NewContactForm()
     cities = Locations.query.all()
     for city in cities:
-        form.city.choices.append(tuple(city.location_id ,city.city))
+        form.city.choices.append((city.location_id ,city.city))
 
-    if form.validate_on_submit() == False:
+    if form.validate_on_submit():
         location = Locations.query.filter_by(form.city.data).first()
         Data = Contact(
             first_name = form.first_name.data,
