@@ -52,5 +52,5 @@ class TestViews(TestBase):
         self.assertEqual(self.client.get(url_for('new')).status_code, 200)
 
     def test_indb(self):
-        self.assertFalse(self.Contact.query.filter_by(id).first(), id)  
+        self.assertFalse(Contact.query.filter_by(id).first(), id)  
     
