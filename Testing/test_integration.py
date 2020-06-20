@@ -77,7 +77,7 @@ class TestNewContact(TestBase):
         assert url_for('home') in self.driver.current_url
 
         print(Contact.query.filter_by(first_name=contact.first_name).first())
-        assert Contact.query.filter_by(first_name=contact.first_name).first(). == contact.first_name
+        assert Contact.query.filter_by(first_name=contact.first_name).first() == contact.first_name
 
         print(self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').getText())
         assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').getText().lower()
