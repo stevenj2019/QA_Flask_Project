@@ -61,7 +61,7 @@ class TestBase(LiveServerTestCase):
         db.session.commit()
         db.drop_all()
         db.create_all()
-        data()
+        self.data()
 
     def tearDown(self):
         self.driver.quit()
