@@ -56,7 +56,7 @@ def delete(user_id):
     contact = Contact.query.filter_by(contact_id=user_id).first()
     db.session.delete(contact)
     db.session.commit()
-    return redirect(url_for('register'))
+    return redirect(url_for('home'))
 
 
 
