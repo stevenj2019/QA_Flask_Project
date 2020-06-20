@@ -76,7 +76,6 @@ class TestNewContact(TestBase):
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
 
-    def test_if_in_db(self):
         print(Contact.query.filter_by(contact.first_name).first())
         assert Contact.query.filter_by(contact.first_name).first() == contact.first_name
 
