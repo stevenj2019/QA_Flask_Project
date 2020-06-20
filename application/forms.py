@@ -7,8 +7,7 @@ from flask_login import current_user
 class LoginForm(FlaskForm):
     email = StringField('Email',
         validators=[
-            DataRequired(),
-            Email()
+            DataRequired()
         ]
     )
     password = PasswordField('Password', 
@@ -18,12 +17,6 @@ class LoginForm(FlaskForm):
     )
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
-
-    def validate_email(self,email):
-        if email.data != current_user.email:
-            user = Users.query.filter_by(email=email.data).first()
-            if user:
-                raise ValidationError('Email already in use')
 
 class NewContactForm(FlaskForm):
 

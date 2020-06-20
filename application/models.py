@@ -6,12 +6,6 @@ class Admin(db.Model, UserMixin):
     email = db.Column(db.String(150), nullable = False)
     password = db.Column(db.String(500), nullable = False)
     
-    def __repr__(self):
-        return ''.join([
-            'Email: ', str(self.email), '\n', 
-            'Password Hash', str(self.password), '\n',
-        ])
-
 class Contact(db.Model):
     contact_id = db.Column(db.Integer, primary_key = True)    
     first_name = db.Column(db.String(10), nullable = False)
