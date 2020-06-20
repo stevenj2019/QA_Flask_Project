@@ -59,7 +59,7 @@ def edit(user_id):
         user_id.email_address = form.email_address.data
         user_id.phone_number = form.phone_number.data
         user_id.location_id = form.city.data 
-    elif:
+    elif request.method == 'GET':
         form.email_address.data = user_id.email_address
         form.phone_number.data = user_id.phone_number
         form.city = user_id.location_id
