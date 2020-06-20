@@ -66,7 +66,6 @@ def edit(user_id):
     elif request.method == 'GET':
         form.email_address.data = current_data.email_address
         form.phone_number.data = current_data.phone_number
-        form.city = current_data.location_id
     return render_template('account.html', form=form, data=current_data)
 
 @app.route('/delete/<user_id>')
