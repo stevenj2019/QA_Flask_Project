@@ -102,7 +102,7 @@ class TestNewContact(TestBase):
 
         assert Contact.query.filter_by(first_name=self.contact.first_name).first().first_name == self.contact.first_name
 
-        assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').getText().lower()
+        assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').text().lower()
 class TestDeleteContact(TestBase):
 
     def test_deletion(self):
