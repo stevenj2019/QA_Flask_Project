@@ -1,6 +1,6 @@
 {% block body_content %}
     <h1>Create a new contact</h1>
-    <p>account info for {{data.first_name + data.last_name}}</p>
+    <p>account info for {{data.first_name + " " +data.last_name}}</p>
     <form method="POST">
         {{ form.hidden_tag() }}
         <div class='form_group'>

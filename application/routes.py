@@ -52,7 +52,7 @@ def auth():
 
 @app.route('/update/<user_id>', methods=['GET', 'POST'])
 def edit(user_id):
-    form = EditContactForm()
+    form = EditContactForm(city=Contact.query.filter_by(contact_id=user_id).first().location_id)
     current_data = Contact.query.filter_by(contact_id=user_id).first()
     cities = Locations.query.all()
     for city in cities:
