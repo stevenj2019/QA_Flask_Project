@@ -62,10 +62,12 @@ def edit(user_id):
         current_data.phone_number = form.phone_number.data
         current_data.location_id = form.city.data
         db.session.query().filter_by(contact_id=user_id).update(
+            dict(
             {Contact.email_address: form.email_address.data},
             {Contact.phone_number: form.phone_number.data},
             {Contact.location_id: form.city.data}
-            )
+            ))
+        db.session.commit()
         return redirect(url_for('home'))
     elif request.method == 'GET':
         form.email_address.data = current_data.email_address
