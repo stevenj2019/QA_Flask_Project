@@ -28,9 +28,18 @@ class TestBase(LiveServerTestCase):
         chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(executable_path=os.getcwd()+'/chromedriver', chrome_options=chrome_options)
         self.driver.get("http://localhost:5000")
+        contact = Contact(
+            first_name = 'John',
+            last_name = 'Johnson',
+            email_address = 'john@johnson.john',
+            phone_number = '+446251893271',
+            location_id = None
+        )
         db.session.commit()
         db.drop_all()
         db.create_all()
+        db.session.add(contact)
+        db.session.commit()
 
     def tearDown(self):
         self.driver.quit()
@@ -59,25 +68,18 @@ class TestLogin(TestBase):
 class TestNewContact(TestBase):
 
     def test_new(self):
-        contact = Contact(
-            first_name = 'John',
-            last_name = 'Johnson',
-            email_address = 'john@johnson.john',
-            phone_number = '+446251893271',
-            location_id = None
-        )
         self.driver.find_element_by_xpath('/html/body/div/ul/li[3]/a').click() #still need to add the click to the new page (requires auth)
         time.sleep(5)
-        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(contact.first_name)
-        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(contact.last_name)
-        self.driver.find_element_by_xpath('//*[@id="email_address"]').send_keys(contact.email_address)
-        self.driver.find_element_by_xpath('//*[@id="phone_number"]').send_keys(contact.phone_number)
+        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(self.contact.first_name)
+        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(self.contact.last_name)
+        self.driver.find_element_by_xpath('//*[@id="email_address"]').send_keys(self.contact.email_address)
+        self.driver.find_element_by_xpath('//*[@id="phone_number"]').send_keys(self.contact.phone_number)
         self.driver.find_element_by_xpath('//*[@id="city"]').send_keys('Manchester')
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
 
-        print(Contact.query.filter_by(first_name=contact.first_name).first())
-        assert Contact.query.filter_by(first_name=contact.first_name).first() == contact.first_name
+        print(Contact.query.filter_by(first_name=self.contact.first_name).first())
+        assert Contact.query.filter_by(first_name=self.contact.first_name).first() == self.contact.first_name
 
         print(self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').getText())
         assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').getText().lower()
