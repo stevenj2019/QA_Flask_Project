@@ -20,6 +20,29 @@ class TestBase(LiveServerTestCase):
         app.config['SECRET_KEY'] = str(os.getenv('TEST_SECRET_KEY'))
         return app
 
+    def data(self):
+        with open("Tooling/office_location_data.csv", "r") as Data:
+            for line in Data:
+                DATASTREAM = line.split(',')
+                print(DATASTREAM)
+                Location_Data = Locations(
+                    first_line = DATASTREAM[0], 
+                    second_line = DATASTREAM[1],
+                    city = DATASTREAM[2],
+                post_code = DATASTREAM[3],  
+                )
+                db.session.add(Location_Data)
+                contact = Contact(
+                    first_name = 'John',
+                    last_name = 'Johnson',
+                    email_address = 'john@johnson.john',
+                    phone_number = '+446251893271',
+                    location_id = 1
+                )
+                db.session.add(contact)
+
+        db.session.commit()
+
     def setUp(self):
         """Setup the test driver and create test users"""
         print("--------------------------NEXT-TEST----------------------------------------------")
@@ -33,13 +56,12 @@ class TestBase(LiveServerTestCase):
             last_name = 'Johnson',
             email_address = 'john@johnson.john',
             phone_number = '+446251893271',
-            location_id = 'Manchester'
+            location_id = 1
         )
         db.session.commit()
         db.drop_all()
         db.create_all()
-        db.session.add(contact)
-        db.session.commit()
+        data()
 
     def tearDown(self):
         self.driver.quit()
