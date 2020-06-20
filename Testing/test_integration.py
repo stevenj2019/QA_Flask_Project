@@ -92,7 +92,7 @@ class TestNewContact(TestBase):
     def test_new(self):
         self.driver.find_element_by_xpath('/html/body/div/ul/li[3]/a').click() #still need to add the click to the new page (requires auth)
         time.sleep(5)
-        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(TestBase.contact.first_name)
+        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(self.contact.first_name)
         self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(self.contact.last_name)
         self.driver.find_element_by_xpath('//*[@id="email_address"]').send_keys(self.contact.email_address)
         self.driver.find_element_by_xpath('//*[@id="phone_number"]').send_keys(self.contact.phone_number)
@@ -101,6 +101,10 @@ class TestNewContact(TestBase):
         assert url_for('home') in self.driver.current_url
 
         print(Contact.query.filter_by(first_name=self.contact.first_name).first())
+        {}
+        None
+        {}
+
         assert Contact.query.filter_by(first_name=self.contact.first_name).first() == self.contact.first_name
 
         print(self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').getText())
@@ -110,5 +114,5 @@ class TestDeleteContact(TestBase):
     def test_deletion(self):
         self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').click()
         time.sleep(5)
-        assert Contact.query.filter_by(contact_id=1).first() == False
+        assert Contact.query.filter_by(contact_id=1).first() == None
     
