@@ -27,7 +27,7 @@
                     <td>{{contact.phone_number}}</td>
                     <td>{{contact.location.city}}</td>
                     <td><a href="">View More!</a></td>
-                    <td><a= href="{{url_for('delete'), user_id = contact.contact_id}}">Remove Account</a></td>
+                    <td><a= href="{{url_for('delete', user_id=contact.contact_id)}}">Remove Account</a></td>
                 </tr>
             {% endfor %}
         </table>
