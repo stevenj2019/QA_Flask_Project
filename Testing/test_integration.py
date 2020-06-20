@@ -76,11 +76,12 @@ class TestNewContact(TestBase):
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         assert url_for('home') in self.driver.current_url
 
-        assert Contact.query.filter_by(first_name).first().first_name == contact.first_name
+        print(Contact.query.filter_by(first_name).first())
+        assert Contact.query.filter_by(first_name).first() == contact.first_name
 
 class TestDeleteContact(TestBase):
 
     def test_deletion(self):
-        self.driver.find_element_by_xpath('').click()
+        self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').click()
         time.sleep(5)
         assert Contact.query.filter_by(contact_id = 1).first() == False
