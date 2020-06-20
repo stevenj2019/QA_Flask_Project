@@ -50,3 +50,10 @@ class NewContactForm(FlaskForm):
         )
 
     submit = SubmitField()
+
+class EditContactForm(FlaskForm):
+
+    email_address = StringField('Email Address', validators=[DataRequired()])
+    phone_number = StringField('Phone Number', validators=[DataRequired()])
+    city = SelectField('City', choices= [], coerce=int, validators=[DataRequired()])
+    submit=SubmitField()

@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from application import app, db, bcrypt, login_manager
 from application.models import Admin, Contact, Locations
-from application.forms import LoginForm, NewContactForm
+from application.forms import LoginForm, NewContactForm, EditContactForm
 
 from application import app 
 
@@ -50,6 +50,20 @@ def auth():
     else:
         print(form.errors)
     return render_template('auth.html', form = form)
+
+@app.route('/update/<user_id>', methods=['GET', 'POST'])
+def edit(user_id):
+    form = EditContactForm()
+    current_data = Contact.query.filter_by(contact_id=user_id).first()
+    if form.validate_on_submit():
+        user_id.email_address = form.email_address.data
+        user_id.phone_number = form.phone_number.data
+        user_id.location_id = form.city.data 
+    elif:
+        form.email_address.data = user_id.email_address
+        form.phone_number.data = user_id.phone_number
+        form.city = user_id.location_id
+    return render_template('account.html', form=form, data=current_id)
 
 @app.route('/delete/<user_id>')
 def delete(user_id):
