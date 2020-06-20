@@ -33,7 +33,7 @@ class TestBase(LiveServerTestCase):
             last_name = 'Johnson',
             email_address = 'john@johnson.john',
             phone_number = '+446251893271',
-            location_id = 1
+            location_id = 'Manchester'
         )
         db.session.commit()
         db.drop_all()
