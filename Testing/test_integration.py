@@ -108,5 +108,5 @@ class TestDeleteContact(TestBase):
     def test_deletion(self):
         self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').click()
         time.sleep(5)
-        assert Contact.query.filter_by(contact_id=2).first() == None
+        assert Contact.query.filter_by(contact_id=1).first() == None
     
