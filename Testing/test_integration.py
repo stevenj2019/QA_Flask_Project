@@ -77,7 +77,7 @@ class TestNewContact(TestBase):
         assert url_for('home') in self.driver.current_url
 
         print(Contact.query.filter_by(contact.first_name).first())
-        assert Contact.query.filter_by(contact.first_name).first() == contact.first_name
+        assert Contact.query.filter_by(contact.first_name).first() = contact.first_name
 
 class TestDeleteContact(TestBase):
 
