@@ -53,8 +53,8 @@ def auth():
 
 @app.route('/delete/<user_id>')
 def delete(user_id):
-    Contact = Contact.query.filter_by(id=user_id).first()
-    db.session.delete(Contact)
+    contact = Contact.query.filter_by(contact_id=user_id).first()
+    db.session.delete(contact)
     db.session.commit()
     return redirect(url_for('register'))
 
