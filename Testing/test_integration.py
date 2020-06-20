@@ -90,7 +90,7 @@ class TestLogin(TestBase):
 class TestNewContact(TestBase):
 
     def test_new(self):
-        self.driver.find_element_by_xpath('/html/body/div/ul/li[3]/a').click() #still need to add the click to the new page (requires auth)
+        self.driver.find_element_by_xpath('/html/body/div/ul/li[3]/a').click()
         time.sleep(5)
         self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(self.contact.first_name)
         self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(self.contact.last_name)
@@ -102,7 +102,7 @@ class TestNewContact(TestBase):
 
         assert Contact.query.filter_by(first_name=self.contact.first_name).first().first_name == self.contact.first_name
 
-        assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').text().lower()
+        assert self.driver.find_element_by_xpath('/html/body/table/tbody/tr[2]/td[7]/a').text() == self.contact.first_name
 class TestDeleteContact(TestBase):
 
     def test_deletion(self):
