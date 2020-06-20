@@ -17,7 +17,6 @@ def new():
     cities = Locations.query.all()
     for city in cities:
         form.city.choices.append([city.location_id, city.city])
-
     if form.validate_on_submit():
         #location = Locations.query.filter_by(form.city.data[0]).first()
         Data = Contact(
@@ -55,10 +54,14 @@ def auth():
 def edit(user_id):
     form = EditContactForm()
     current_data = Contact.query.filter_by(contact_id=user_id).first()
+    cities = Locations.query.all()
+    for city in cities:
+        form.city.choices.append([city.location_id, city.city])
     if form.validate_on_submit():
         current_data.email_address = form.email_address.data
         current_data.phone_number = form.phone_number.data
-        current_data.location_id = form.city.data 
+        current_data.location_id = form.city.data
+        return redirect(url_for('home'))
     elif request.method == 'GET':
         form.email_address.data = current_data.email_address
         form.phone_number.data = current_data.phone_number
