@@ -29,8 +29,6 @@ https://trello.com/b/C6OVfoPZ/qaa
 
 Risk assestment can be found [Here](https://docs.google.com/spreadsheets/d/1e9dNWcu6ro9YcTkmCDNhyVzRHGwjEr3RxXqMkqxVKZE/edit?usp=sharing)
 
-# Trello Board progress Tracking 
-
 # Minimum Viable Product
 
 The Minimum Viable Prodect is defines within the To-Do and This Sprint sections of the Trello Board 
@@ -40,6 +38,10 @@ The Minimum Viable Prodect is defines within the To-Do and This Sprint sections 
 There are other User Stories However they are mostly nice to have or more advances features
 
 # First Sprint
+
+Before I started this phase of development we took the time to produce a primiliminary Risk assestment, While this will be added to within future iterations I felt it was important to see some of the potentials problems before we started on the code. 
+
+![](Document_rss/RiskAssestment-1.png)
 
 As Seen within the Minimum Viable Product only one user story has been chosen for this sprint. This is due to the short sprint time of a day. 
 As well as this is one of the more advances features as you can see from the below tasks:
@@ -66,7 +68,6 @@ Following Client Feedback and the decision to give users a mean to sign into the
 
 Using Trello we have further decided what we will be doing this sprint. 
 
-
 ![](Documentation_rss/Sprint2Tasks.png)
 
 This sprint is focussed much more on the core functionality alongside building in usability with basic formatting of pages in order to establish our MVP. 
@@ -89,3 +90,12 @@ Once i finished the Delete Functionality to the application i ran more tests to 
 
 ![](Documentation_rss/mid-Sprint2Tests)
 
+After this we hit the update functionality in order to finish the MVP for the CRUD application. we also chose to retest this before we commited back to the 'Dev' Branch. 
+
+Below are the results. 
+
+![](Documentation_rss/end-Sprint2Tests)
+
+This concludes the second sprint 
+
+# Third Sprint
