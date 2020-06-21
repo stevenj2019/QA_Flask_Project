@@ -61,30 +61,24 @@ class TestViews(TestBase):
  
     def test_edit_view(self):
         self.assertEqual(self.client.get(url_for('edit', user_id=1)).status_code, 200)
-"""
-class TestRedirects(TestBase):
 
-    #def test_new_redirect(self):
-        #assert self.client.get(url_for('new'), follow_redirects=True) == url_for('home')
+class TestDb(TestBase):
+    
+    def test_user(self):
 
-    #def test_login_redirect(self):
-        #assert self.client.get(url_for('auth'), follow_redirects=True) == url_for('home')
-
-    #def test_edit_redirect(self):
-
-    #def test_delete_redirect(self):
-
-class TestContactView(TestBase):
-
-    def test_contact_redirect(self):
         with self.client:
             response = self.client.post(
-                'post', 
-                data=dict(
-
+                '/newcontact',
+                data = dict(
+                   first_name = 'john',
+                   last_name = 'johnson',
+                   email_address = 'john@johnson.com',
+                   phone_number = '+446168952173',
+                   location_id = 1
                 ), 
-                follow_redirects=True
+            follow_redirects=True
             )
-            self.assertIn(b'John', response.data)
-
-    """
+        self.assertIn(b'john', response.data)
+        self.assertIn(b'johnson', response.data)
+        self.assertIn(b'john@johnson.com', response.data)
+        self.assertIn(b'+446168952173', response.data)
