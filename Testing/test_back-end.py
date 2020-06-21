@@ -53,7 +53,7 @@ class TestViews(TestBase):
  
     def test_edit_view(self):
         self.assertEqual(self.client.get(url_for('edit', user_id=1)).status_code, 200)
-
+"""
 class TestRedirects(TestBase):
 
     #def test_new_redirect(self):
@@ -65,7 +65,7 @@ class TestRedirects(TestBase):
     #def test_edit_redirect(self):
 
     #def test_delete_redirect(self):
-"""
+
 class TestContactView(TestBase):
 
     def test_contact_redirect(self):
