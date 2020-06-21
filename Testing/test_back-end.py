@@ -30,7 +30,7 @@ class TestBase(TestCase):
             last_name= 'Johnson', 
             email_address= 'john@johnson.com', 
             phone_number= '+446789261532', 
-            location_id= 1
+            location= 'Manchester'
         )
         return app
 
