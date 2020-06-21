@@ -25,6 +25,13 @@ class TestBase(TestCase):
             email='john@doe.com', 
             password=bcrypt.generate_password_hash('ThisPasswordSucks'))
 
+        self.contact = Contact(
+            first_name= 'John', 
+            last_name= 'Johnson', 
+            email_address= 'john@johnson.com', 
+            phone_number= '+446789261532', 
+            location_id= 'Manchester'
+        )
         return app
 
     def setUp(self):
@@ -34,6 +41,7 @@ class TestBase(TestCase):
         db.create_all()
 
         db.session.add(self.user)
+        db.session.add(self.contact)
         db.session.commit()
 
     def tearDown(self):
