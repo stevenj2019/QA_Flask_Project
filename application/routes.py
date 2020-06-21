@@ -19,13 +19,7 @@ def new():
         form.city.choices.append([city.location_id, city.city])
     if form.validate_on_submit():
         #location = Locations.query.filter_by(form.city.data[0]).first()
-        Data = Contact(
-            first_name = form.first_name.data,
-            last_name = form.last_name.data, 
-            email_address = form.email_address.data,
-            phone_number = form.phone_number.data,
-            location_id = form.city.data
-        )
+        Data = Contact(first_name = form.first_name.data, last_name = form.last_name.data, email_address = form.email_address.data, phone_number = form.phone_number.data, location_id = form.city.data)
         db.session.add(Data)
         db.session.commit()
 
@@ -54,8 +48,7 @@ def auth():
 def edit(user_id):
     form = EditContactForm(city=Contact.query.filter_by(contact_id=user_id).first().location_id)
     current_data = Contact.query.filter_by(contact_id=user_id).first()
-    cities = Locations.query.all()
-    for city in cities:
+    for city in Locations.query.all():
         form.city.choices.append([city.location_id, city.city])
     if form.validate_on_submit():
         current_data.email_address = form.email_address.data
@@ -70,8 +63,7 @@ def edit(user_id):
 
 @app.route('/delete/<user_id>')
 def delete(user_id):
-    contact = Contact.query.filter_by(contact_id=user_id).first()
-    db.session.delete(contact)
+    db.session.delete(Contact.query.filter_by(contact_id=user_id).first())
     db.session.commit()
     return redirect(url_for('home'))
 
