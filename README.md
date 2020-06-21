@@ -99,3 +99,25 @@ Below are the results.
 This concludes the second sprint 
 
 # Third Sprint
+
+In the Third sprint I intend to implement the automated CI/CD Pipeline. This will allow developers and Ops to have to worry less about the testing and the deployment of new builds as this will become automated. 
+
+below is how i feel the CI/CD Pipeline will look 
+
+![](Documentation_rss/Pipeline.png)
+
+So lets talk through this. 
+
+Due to python being an interpretive language build servers and artifact repositories are a none requirement. this makes the pipeline less complicated. 
+
+Jenkins and Github will be connected via the Dev Branch web hook. This is implemented so there is a last port of call manual intervention is required to push to the main, However the application will still be able to be deployed from the dev branch. 
+
+This has been done because it is vital the code on the main branch is in an always-functional state. 
+
+This was done due to the new Risk of false positive test results or unexpected errors within the pipeline. 
+
+Jenkins will then run our tests on a running version of the application to ensure there are no breaks. once this is completed it will then deploy our application using Gunicorn WSGI server within a systemd service on the same server
+
+You will require a Jenkins build server. If you need help with the deployment please visit [Here](https://www.tutorialspoint.com/jenkins/jenkins_installation.htm)
+
+
