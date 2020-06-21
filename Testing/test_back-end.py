@@ -42,12 +42,41 @@ class TestBase(TestCase):
 
 class TestViews(TestBase):
 
-    def test_auth_view(self):
-        self.assertEqual(self.client.get(url_for('auth')).status_code, 200)
-
     def test_home_view(self):
         self.assertEqual(self.client.get(url_for('home')).status_code, 200)
 
     def test_new_contact_view(self):
-        self.assertEqual(self.client.get(url_for('new')).status_code, 200)  
-    
+        self.assertEqual(self.client.get(url_for('new')).status_code, 200) 
+
+    def test_auth_view(self):
+        self.assertEqual(self.client.get(url_for('auth')).status_code, 200)
+ 
+    def test_edit_view(self):
+        self.assertEqual(self.client.get(url_for('edit', user_id=1)).status_code, 200)
+
+class TestRedirects(TestBase):
+
+    #def test_new_redirect(self):
+        #assert self.client.get(url_for('new'), follow_redirects=True) == url_for('home')
+
+    #def test_login_redirect(self):
+        #assert self.client.get(url_for('auth'), follow_redirects=True) == url_for('home')
+
+    #def test_edit_redirect(self):
+
+    #def test_delete_redirect(self):
+"""
+class TestContactView(TestBase):
+
+    def test_contact_redirect(self):
+        with self.client:
+            response = self.client.post(
+                'post', 
+                data=dict(
+
+                ), 
+                follow_redirects=True
+            )
+            self.assertIn(b'John', response.data)
+
+    """

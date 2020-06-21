@@ -18,7 +18,6 @@ def new():
     for city in cities:
         form.city.choices.append([city.location_id, city.city])
     if form.validate_on_submit():
-        #location = Locations.query.filter_by(form.city.data[0]).first()
         Data = Contact(first_name = form.first_name.data, last_name = form.last_name.data, email_address = form.email_address.data, phone_number = form.phone_number.data, location_id = form.city.data)
         db.session.add(Data)
         db.session.commit()
@@ -66,6 +65,3 @@ def delete(user_id):
     db.session.delete(Contact.query.filter_by(contact_id=user_id).first())
     db.session.commit()
     return redirect(url_for('home'))
-
-
-
